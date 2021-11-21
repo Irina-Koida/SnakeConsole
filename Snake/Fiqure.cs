@@ -5,23 +5,26 @@ namespace Snake
     class Figure
     {
         protected List<Point> pList;
+
         public void Draw()
         {
-            foreach (Point p in pList)
+            foreach (Point point in pList)
             {
-                p.Draw();
+                point.Draw();
             }
         }
-        internal bool IsHit(Figure figure)
+
+        internal bool IsHit(Figure figure) // ходим, смотрим не пересекаются ли точки, в параметр передаем фигуру(полиморфизм)
         {
-            foreach (var p in pList)
+            foreach (var point in pList)
             {
-                if (figure.IsHit(p))
+                if (figure.IsHit(point))
                     return true;
             }
             return false;
         }
-        private bool IsHit(Point point)
+
+        private bool IsHit(Point point) // ходим, смотрим не пересекаются ли точки, в параметр передаем точку(полиморфизм)
         {
             foreach (var p in pList)
             {

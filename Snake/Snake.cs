@@ -4,10 +4,13 @@ using System.Linq;
 
 namespace Snake
 {
-	class Snake : Figure
+	class Snake : Figure // говорим что змейка - это фигура, которая состоит из точек
 	{
 		Direction direction;
-		public Snake(Point tail, int length, Direction _direction)
+
+		// в конструкторе инициализируем положение змейки(длина хвоста), длину змейки и ее движение
+
+		public Snake(Point tail, int length, Direction _direction) 
 		{
 			direction = _direction;
 			pList = new List<Point>();
@@ -18,10 +21,11 @@ namespace Snake
 				pList.Add(p);
 			}
 		}
+
 		public void Move()
 		{
-			Point tail = pList.First();
-			pList.Remove(tail);
+			Point tail = pList.First(); // метод, который возвращает первый элемент из списка
+			pList.Remove(tail); // так как змейка ползет вперед, то та точка, что становится последней в хвосте - больше не нужна
 			Point head = GetNextPoint();
 			pList.Add(head);
 
@@ -31,9 +35,9 @@ namespace Snake
 
 		public Point GetNextPoint()
 		{
-			Point head = pList.Last();
+			Point head = pList.Last(); // метод, который возвращает последний элемент из списка
 			Point nextPoint = new Point(head);
-			nextPoint.Move(1, direction);
+			nextPoint.Move(1, direction); // сместись на 1 позицию, в указаном направлении
 			return nextPoint;
 		}
 

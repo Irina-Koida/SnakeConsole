@@ -4,7 +4,7 @@ namespace Snake
 {
 	class Walls
 	{
-		List<Figure> wallList;
+		public List<Figure> wallList;
 		public Walls(int mapWidth, int mapHeight)
 		{
 			wallList = new List<Figure>();
